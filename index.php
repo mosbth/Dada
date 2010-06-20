@@ -25,6 +25,7 @@ switch($gPage) {
 	//
 	// Dada
 	//
+	case 'home':			require_once(TP_PAGESPATH . 'home/PEmpty.php'); break;
 	case 'empty':			require_once(TP_PAGESPATH . 'home/PEmpty.php'); break;
 
 	//
@@ -34,10 +35,10 @@ switch($gPage) {
 	case 'installp':	require_once($currentDir . 'install/PInstallProcess.php'); break;
 
 	//
-	// Using common files from modules/core
+	// Directory listning
 	//
-	//case 'ls':		require_once(TP_PAGESPATH . 'viewfiles/PListDirectory.php'); break;
-
+	case 'ls':	require_once(TP_PAGESPATH . 'viewfiles/PListDirectory.php'); break;
+	
 	//
 	// Default case, trying to access some unknown page, should present some error message
 	// or show the home-page
