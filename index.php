@@ -23,9 +23,13 @@ global $gPage;
 switch($gPage) {
 	
 	//
-	// Forum Romanum
+	// Dada
 	//
-	case 'home':			require_once($currentDir . 'PIndex.php'); break;
+	case 'empty':			require_once(TP_PAGESPATH . 'home/PEmpty.php'); break;
+
+	//
+	// Dada
+	//
 	case 'install':		require_once($currentDir . 'install/PInstall.php'); break;
 	case 'installp':	require_once($currentDir . 'install/PInstallProcess.php'); break;
 
