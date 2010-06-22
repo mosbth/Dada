@@ -1,31 +1,80 @@
 <?php
 // ===========================================================================================
 //
-// config.php
+//		Persia (http://phpersia.org), software to build webbapplications.
+//    Copyright (C) 2010  Mikael Roos (mos@bth.se)
 //
-// Config-file for database and SQL related issues. All SQL-statements are usually stored in 
-// /sql/ for each module. This files contains definitions for table names and so.
+//    This file is part of Persia.
+//
+//    Persia is free software: you can redistribute it and/or modify
+//    it under the terms of the GNU General Public License as published by
+//    the Free Software Foundation, either version 3 of the License, or
+//    (at your option) any later version.
+//
+//    Persia is distributed in the hope that it will be useful,
+//    but WITHOUT ANY WARRANTY; without even the implied warranty of
+//    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//    GNU General Public License for more details.
+//
+//    You should have received a copy of the GNU General Public License
+//    along with Persia. If not, see <http://www.gnu.org/licenses/>.
+//
+// File: config.php 
+//
+// Description: 
+// Module specific database methods and settings.
+// Define the names for the database (tables, views, procedures, functions, triggers)
+// Defining all in an array and making them accessable through the CDatabaseController.
 //
 // Author: Mikael Roos, mos@bth.se
+//
+// Known issues:
+// -
+//
+// History:
+// 2010-06-21: Created.
 //
 
 
 // -------------------------------------------------------------------------------------------
 //
-// Define the names for the database (tables, views, procedures, functions, triggers)
+// Get common controllers, uncomment if not used in current pagecontroller.
 //
-//define('DBT_User', 			DB_PREFIX . 'User');
+// $pc, Page Controller helpers. Useful methods to use in most pagecontrollers
+// $uc, User Controller. Keeps information/permission on user currently signed in.
+// $if, Interception Filter. Useful to check constraints before entering a pagecontroller.
+// $db, Database Controller. Manages all database access.
+//
+$pc = CPageController::GetInstance();
+//$pc = CPageController::GetInstanceAndLoadLanguage(__FILE__);
 
-// Stored procedures
-//define('DBSP_PGetArticleDetailsAndArticleList',	DB_PREFIX . 'PGetArticleDetailsAndArticleList');
+$DB_Tables_And_Procedures = Array(
 
-// User Defined Functions UDF
-//define('DBUDF_FCheckUserIsOwnerOrAdmin',	DB_PREFIX . 'FCheckUserIsOwnerOrAdmin');
+	// -------------------------------------------------------------------------------------------
+	//
+	// Module Dada
+	//
+	'DadaDefaultEngine'				=> 'MyISAM',
+	'DadaDefaultCharacterSet'	=> 'utf8',
+	'DadaDefaultCollate'			=> 'utf8_unicode_ci',
 
-// Triggers
-//define('DBTR_TInsertUser',		DB_PREFIX . 'TInsertUser');
+	'CDadaSizeAkronym' 				=> 3,
+	'CDadaSizeName'	 					=> 80,
+	'CDadaSizeDescription'		=> 80,
+	'CDadaSizeShortName'			=> 20,
 
 
+	'DadaPerson'			 				=> DB_PREFIX . 'DadaPerson',
+	'DadaOrganisation'			 	=> DB_PREFIX . 'DadaOrganisation',
+	'DadaSchool'			 				=> DB_PREFIX . 'DadaSchool',
+	'DadaDepartment'			 		=> DB_PREFIX . 'DadaDepartment',
+	'DadaDoS'							 		=> DB_PREFIX . 'DadaDoS',
+	'DadaResearchGroup'			 	=> DB_PREFIX . 'DadaResearchGroup',
+	'DadaTeachingGroup'			 	=> DB_PREFIX . 'DadaTeachingGroup',
+	'DadaTitle'							 	=> DB_PREFIX . 'DadaTitle',
+
+
+);
 
 
 ?>
