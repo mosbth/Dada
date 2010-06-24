@@ -29,9 +29,25 @@ switch($gPage) {
 	case 'empty':			require_once(TP_PAGESPATH . 'home/PEmpty.php'); break;
 
 	//
+	// Cours
+	//
+	case 'course':		require_once($currentDir . 'course/PCourseList.php'); break;
+
+	//
+	// Staff
+	//
+	case 'staff':		require_once($currentDir . 'staff/PStaffList.php'); break;
+
+	//
+	// Report
+	//
+	case 'report':		require_once($currentDir . 'courses/PReports.php'); break;
+
+	//
 	// Login, logout
 	//
-	case 'login':		require_once(TP_PAGESPATH . 'login/PLogin.php'); break;
+	//case 'login':		require_once(TP_PAGESPATH . 'login/PLogin.php'); break;
+	case 'login':		require_once($currentDir . 'login/PLogin.php'); break;
 	case 'loginp':	require_once(TP_PAGESPATH . 'login/PLoginProcess.php'); break;
 	case 'logoutp':	require_once(TP_PAGESPATH . 'login/PLogoutProcess.php'); break;
 

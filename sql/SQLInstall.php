@@ -140,15 +140,41 @@ INSERT INTO {$db->_['DadaTitle']}
 --
 -- Insert default Person(s) with organisational belonging
 --
+-- INSERT INTO {$db->_['DadaPerson']} 
+--	(akronymPerson, firstnamePerson, lastnamePerson, birthPerson)
+--	VALUES
+--	('DOE', 'John/Jane', 'Doe', NOW());
+--	
+-- INSERT INTO {$db->_['DadaOrganisation']} 
+--	(Org_idPerson)
+--	VALUES
+--	(LAST_INSERT_ID());
+
+
+-- =============================================================================================
+--
+-- Get values from Dada 1.0
+--
+-- =============================================================================================
+
+-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+--
+-- Staff
+--
 INSERT INTO {$db->_['DadaPerson']} 
-	(akronymPerson, firstnamePerson, lastnamePerson, birthPerson)
-	VALUES
-	('DOE', 'John/Jane', 'Doe', NOW());
-	
-INSERT INTO {$db->_['DadaOrganisation']} 
-	(Org_idPerson)
-	VALUES
-	(LAST_INSERT_ID());
+	(idPerson, akronymPerson, namePerson, birthPerson)
+	SELECT idPersonal, akronymPersonal, namnPersonal, foddPersonal
+	FROM Personal;
+
+
+-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+--
+-- Courses
+--
+INSERT INTO {$db->_['DadaCourse']} 
+	(idCourse, codeCourse, code1Course, code2Course, nameCourse, nameEnCourse, pointsCourse, keywordCourse, descriptionCourse)
+	SELECT idKurs, kodKurs, kod1Kurs, kod2Kurs, namnSvKurs, namnEnKurs, poangKurs, nyckelordKurs, kommentarKurs
+	FROM Kurs;
 
 
 EOD;

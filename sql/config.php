@@ -58,10 +58,12 @@ $DB_Tables_And_Procedures = Array(
 	'DadaDefaultCharacterSet'	=> 'utf8',
 	'DadaDefaultCollate'			=> 'utf8_unicode_ci',
 
-	'CDadaSizeAkronym' 				=> 3,
-	'CDadaSizeName'	 					=> 80,
-	'CDadaSizeDescription'		=> 80,
-	'CDadaSizeShortName'			=> 20,
+	'CDadaSizeAkronym' 					=> 3,
+	'CDadaSizeName'	 						=> 80,
+	'CDadaSizeDescription'			=> 80,
+	'CDadaSizeDescriptionLong'	=> 200,
+	'CDadaSizeShortName'				=> 20,
+	'CDadaSizeCourseCode'				=> 6,
 
 
 	'DadaPerson'			 				=> DB_PREFIX . 'DadaPerson',
@@ -73,6 +75,7 @@ $DB_Tables_And_Procedures = Array(
 	'DadaTeachingGroup'			 	=> DB_PREFIX . 'DadaTeachingGroup',
 	'DadaTitle'							 	=> DB_PREFIX . 'DadaTitle',
 
+	'DadaCourse'							=> DB_PREFIX . 'DadaCourse',
 
 );
 

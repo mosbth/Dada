@@ -59,6 +59,8 @@ $query = <<<EOD
 --
 -- Drop all tables first
 --
+
+-- For Person and Organisation
 DROP TABLE IF EXISTS {$db->_['DadaPerson']};
 DROP TABLE IF EXISTS {$db->_['DadaOrganisation']};
 
@@ -70,6 +72,15 @@ DROP TABLE IF EXISTS {$db->_['DadaResearchGroup']};
 DROP TABLE IF EXISTS {$db->_['DadaTeachingGroup']};
 DROP TABLE IF EXISTS {$db->_['DadaTitle']};
 
+-- For Courses
+DROP TABLE IF EXISTS {$db->_['DadaCourse']};
+
+
+-- =============================================================================================
+--
+-- SQL DDL for Person and Organisation
+--
+-- =============================================================================================
 
 -- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 --
@@ -84,6 +95,7 @@ CREATE TABLE {$db->_['DadaPerson']} (
 
   -- Attributes
   akronymPerson CHAR({$db->_['CDadaSizeAkronym']}) NOT NULL UNIQUE,
+  namePerson CHAR({$db->_['CDadaSizeName']}) NULL,
   firstnamePerson CHAR({$db->_['CDadaSizeName']}) NULL,
   lastnamePerson CHAR({$db->_['CDadaSizeName']}) NULL,
   birthPerson DATE NULL
@@ -214,6 +226,34 @@ CREATE TABLE {$db->_['DadaTitle']} (
   -- Attributes
   nameTitle CHAR({$db->_['CDadaSizeShortName']}) NOT NULL UNIQUE,
   descriptionTitle VARCHAR({$db->_['CDadaSizeDescription']}) NULL
+  
+) ENGINE {$db->_['DadaDefaultEngine']} CHARACTER SET {$db->_['DadaDefaultCharacterSet']} COLLATE {$db->_['DadaDefaultCollate']};
+
+
+-- =============================================================================================
+--
+-- SQL DDL for Course and Scheduled courses
+--
+-- =============================================================================================
+
+-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+--
+-- Table for Course
+--
+CREATE TABLE {$db->_['DadaCourse']} (
+
+  -- Primary key(s)
+  idCourse INT UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY,
+
+  -- Attributes
+  codeCourse CHAR({$db->_['CDadaSizeCourseCode']}) NOT NULL UNIQUE,
+  code1Course CHAR({$db->_['CDadaSizeCourseCode']}) NULL, -- To be replace by tags
+  code2Course CHAR({$db->_['CDadaSizeCourseCode']}) NULL, -- To be replace by tags
+  nameCourse CHAR({$db->_['CDadaSizeName']}) NULL,
+  nameEnCourse CHAR({$db->_['CDadaSizeName']}) NULL,
+  pointsCourse DECIMAL(3,1) UNSIGNED NULL DEFAULT 7.5,
+  keywordCourse CHAR({$db->_['CDadaSizeName']}) NULL, -- To be replace by tags
+  descriptionCourse CHAR({$db->_['CDadaSizeDescriptionLong']}) NULL
   
 ) ENGINE {$db->_['DadaDefaultEngine']} CHARACTER SET {$db->_['DadaDefaultCharacterSet']} COLLATE {$db->_['DadaDefaultCollate']};
 

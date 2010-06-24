@@ -21,20 +21,20 @@
 define('DB_HOST', 			'localhost');		// The database host
 define('DB_USER', 			'mos');					// The username of the database
 define('DB_PASSWORD', 	'secret');			// The users password
-define('DB_DATABASE', 	'persia');			// The name of the database to use
-define('DB_PREFIX', 		'pe_');		    	// Prefix to use infront of tablename and views
+define('DB_DATABASE', 	'sr_01');			// The name of the database to use
+define('DB_PREFIX', 		'dada_');		    	// Prefix to use infront of tablename and views
 
 
 // -------------------------------------------------------------------------------------------
 //
 // Settings for this website (WS), some used as default values in CHTMPLPage.php
 //
-define('WS_SITELINK',   'http://dev.phpersia.org/persia/'); 	// Link to site.
-define('WS_TITLE', 			'Persia');		    										// The title of this site.
+define('WS_SITELINK',   'http://dev.phpersia.org/dada/'); 	// Link to site.
+define('WS_TITLE', 			'Dada');		    										// The title of this site.
 define('WS_STYLESHEET', 'style/plain/stylesheet_liquid.css');	// Default stylesheet of the site.
 define('WS_IMAGES',			WS_SITELINK . 'img/'); 								// Images
 define('WS_FAVICON', 		WS_IMAGES . 'favicon.ico'); 					// Small icon to display in browser
-define('WS_FOOTER', 		'Persia &copy; 2010 by Mikael Roos Home Copyrights Privacy About');	// Footer at the end of the page.
+define('WS_FOOTER', 		'Dada with Persia &copy; 2010 by Mikael Roos Home Copyrights Privacy About');	// Footer at the end of the page.
 define('WS_VALIDATORS', TRUE);	            		// Show links to w3c validators tools.
 define('WS_TIMER', 			TRUE);              		// Time generation of a page and display in footer.
 define('WS_CHARSET', 		'utf-8');           		// Use this charset
@@ -47,10 +47,9 @@ define('WS_JAVASCRIPT',	WS_SITELINK . '/js/');	// JavaScript code
 // Define the application navigation menu.
 //
 $menuApps = Array (
-	'Persia' 				=> 'http://dev.phpersia.org/persia/',
-	'GitHub'	 			=> 'http://github.com/mosbth',
-	// 'Forum Romanum' => 'http://dev.phpersia.org/persia/?m=rom',
-	'File archive' 	=> 'http://dev.phpersia.org/persia/?m=files',
+	'GitHub' 			=> 'http://github.com/mosbth/Dada',
+	'Dada 1.0'		=> 'http://dada.tek.bth.se/sr',
+	'Dada 2.0' 		=> 'http://dada.tek.bth.se/2',
 );
 define('MENU_APPLICATION', 		serialize($menuApps));
 
@@ -60,12 +59,12 @@ define('MENU_APPLICATION', 		serialize($menuApps));
 // Define the navigation menu.
 //
 $menuNavBar = Array (
-	'Home' 				=> '?p=home',
-	'Template'	 	=> '?p=template',
-	'About' 			=> '?p=about',
-	'404' 				=> '?p=NOT_EXISTING',
-	'Install' 		=> '?p=install',
-	'Sourcecode' 	=> '?p=ls',
+	'Home' 				=> '?m=dada&amp;p=home',
+	'Courses'		 	=> '?m=dada&amp;p=empty',
+	'Staff' 			=> '?m=dada&amp;p=empty',
+	'Reports'			=> '?m=dada&amp;p=empty',
+	'Install' 		=> '?m=dada&amp;p=install',
+	'Sourcecode' 	=> '?m=dada&amp;p=ls',
 );
 define('MENU_NAVBAR', 		serialize($menuNavBar));
 
@@ -106,12 +105,12 @@ define('DB_PASSWORDHASHING', 'SHA-1');
 // Set the default email adress to be used as from in mail sent from the system to 
 // account users. Be sure to set a valid domain to avoid spamfilters.
 //
-define('WS_MAILFROM', 				'Persia Development Team <no-reply@nowhere.org>');
-define('WS_MAILSUBJECTLABEL', '[Persia] ');
+define('WS_MAILFROM', 				'Dada Development Team <no-reply@phpersia.org>');
+define('WS_MAILSUBJECTLABEL', '[Dada] ');
 define('WS_MAILSIGNATURE', 	
 	"\n\nBest regards,\n" .
-	"The Development Team Of Persia\n" .
-	"http://phpersia.org\n"
+	"The Development Team Of Dada\n" .
+	"http://phpersia.org/dada\n"
 );
 
 
@@ -120,16 +119,25 @@ define('WS_MAILSIGNATURE',
 // Display the following actions if they are enabled.
 // Set true to enable, false to disable.
 // 
-define('CREATE_NEW_ACCOUNT', true);
-define('FORGOT_PASSWORD', true);
+define('LOCAL_LOGIN', false);
+define('CREATE_NEW_ACCOUNT', false);
+define('FORGOT_PASSWORD', false);
+
+// User Control Panel
+define('USER_CHANGE_PASSWORD', false);
+define('USER_AVATAR', false);
+define('USER_GRAVATAR', true);
 
 
 // -------------------------------------------------------------------------------------------
 //
 // Settings for LDAP and LDAP authentication.
+// Disable/enable LDAP by commenting/uncommenting the following lines.
 //
-//define('LDAP_AUTH_SERVER', 'ldap.dbwebb.se');
-//define('LDAP_AUTH_BASEDN', 'dc=dbwebb,dc=se');
+//define('LDAP_AUTH_SERVER', 'ldaps://ldap.bth.se');
+//define('LDAP_AUTH_BASEDN', 'ou=staff,o=bth');
+define('LDAP_AUTH_SERVER', 'ldap://phpersia.org');
+define('LDAP_AUTH_BASEDN', 'dc=dbwebb,dc=se');
 
 
 // -------------------------------------------------------------------------------------------
@@ -144,9 +152,10 @@ define('FORGOT_PASSWORD', true);
 // -------------------------------------------------------------------------------------------
 //
 // Settings for file upload and file archive.
+// Disable/enable file upload by commenting/uncommenting the following lines.
 //
 define('FILE_ARCHIVE_PATH', '/usr/home/mos/archive/'); // Must be writable by webserver
-define('FILE_MAX_SIZE', 30000); // Filesize in bytes
+define('FILE_MAX_SIZE', 30000000); // Filesize in bytes
 
 
 ?>
