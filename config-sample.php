@@ -41,6 +41,15 @@ define('WS_CHARSET', 		'utf-8');           		// Use this charset
 define('WS_LANGUAGE', 	'en');              		// Default language
 define('WS_JAVASCRIPT',	WS_SITELINK . '/js/');	// JavaScript code
 
+$menuFooter = Array (
+	'Home'	 			=> '?p=home',
+	'About' 			=> '?p=about',
+	'Credits' 		=> '?p=credits',
+	'Legal'				=> '?p=legal',
+	'Privacy'			=> '?p=privacy',
+);
+define('WS_FOOTER_MENU', 		serialize($menuFooter));
+
 
 // -------------------------------------------------------------------------------------------
 //
